@@ -1,4 +1,3 @@
-using Spectre.Console;
 using TemplateExpress.Utils;
 
 namespace TemplateExpress.Implements;

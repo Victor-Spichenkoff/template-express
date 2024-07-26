@@ -9,20 +9,20 @@ using TemplateExpress.Implements;
 // using TemplateExpress.Steps;
 using TemplateExpress.Utils;
 
-namespace ApiAutomator;
-
 class Program
 {
     static void Main(string[] args)
     {
         UserInitalizationArgs Options = new (args);
-        // CreatePackageJson.CreateDefault();
-        // CreateApp.Create();
+        // CreatePackageJson.CreateDefault(Options.OnlyJs);
+        // CreateApp.Create(Options.OnlyJs);
+        // Express.Add();
 
         //Para DEV
         Console.Clear();
-        CreatePackageJson.CreateDefault(Options.OnlyJs, dev:true);
-        CreateApp.Create(Options.OnlyJs, dev:true);
-        Express.Add(true);
+        // CreatePackageJson.CreateDefault(Options.OnlyJs, dev:true);
+        // CreateApp.Create(Options.OnlyJs, dev:true);
+        // Express.Add(true);
+        TypeScript.Add(true);
     }
 }
