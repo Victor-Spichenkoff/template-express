@@ -1,14 +1,14 @@
 {
-  "name": "vss",
+  "name": "vss-express",
   "version": "1.0.0",
   "bin": {
     "vss": "index.js"
   },
   "scripts": {
-    "create": "vss"
+    "create": "node vss.js"
   },
   "files": [
-    "MyConsoleApp.exe",
+    "app/",
     "vss.js"
   ],
   "dependencies": {}

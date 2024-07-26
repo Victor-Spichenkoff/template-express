@@ -6,7 +6,7 @@ namespace TemplateExpress.Utils;
 
 public class RunCommand
 {
-    public static void Run(string command)
+    public static void Run(string command, bool fullLogs = false)
     {
         var process = new Process
         {
@@ -22,7 +22,11 @@ public class RunCommand
         process.Start();
         while (!process.StandardOutput.EndOfStream)
         {
-            Console.WriteLine(process.StandardOutput.ReadLine());
+            if(fullLogs)
+                Console.WriteLine(process.StandardOutput.ReadLine());
+            
+            if(!fullLogs)
+                process.StandardOutput.ReadLine();
         }
         process.WaitForExit();
     }

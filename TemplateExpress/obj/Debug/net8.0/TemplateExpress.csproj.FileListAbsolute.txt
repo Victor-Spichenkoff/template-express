@@ -29,3 +29,5 @@ C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Debug\net8.0\Tem
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Debug\net8.0\TemplateExpress.genruntimeconfig.cache
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Debug\net8.0\ref\TemplateExpress.dll
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Debug\net8.0\TemplateExpress.sourcelink.json
+C:\Users\Pichau\Projects\all_template\final\TemplateExpress\bin\Debug\net8.0\Spectre.Console.dll

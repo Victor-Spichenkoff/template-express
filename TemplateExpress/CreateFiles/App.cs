@@ -5,25 +5,33 @@ namespace TemplateExpress.CreateFiles;
 
 static class CreateApp
 {
-    public static string outputDir = "";
-    public static void Create(bool onlyJs = false, bool dev=false)
+    public static void Create(bool onlyJs = false, string outputDir = "", bool dev = false)
     {
-        if (onlyJs) return;
-
+        string indexContent = AllFilesText.App;
 
         string directory = string.IsNullOrEmpty(outputDir) ? Directory.GetCurrentDirectory() : outputDir;
+        
+        string fileOutName = onlyJs ? "app.js" : "app.ts";
+
         if(dev)
-         directory =  "../../tests/";
+            directory = @"C:\Users\Pichau\Projects\all_template\final\tests";
+
+        directory += @"\src";
+        Directory.CreateDirectory(directory);
+
+        // if (onlyJs) 
+        // {
+
+            // File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
+        // }
+
+
+        // RunCommand.Run("npx tsx init");
+
         
 
-            Console.WriteLine("Automatizando a criação de API Express em Node.js...");
+        File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
 
-            // RunCommand.Run("npx tsx init");
-
-            string indexContent = AllFilesText.App;
-
-            File.WriteAllText(Path.Combine(directory, "index.ts"), indexContent);
-
-            Console.WriteLine("API Express criada com sucesso!");
+        Console.WriteLine($"[INFO] Create {fileOutName}");
     }
 }

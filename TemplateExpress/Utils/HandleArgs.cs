@@ -4,6 +4,7 @@ namespace TemplateExpress.Utils;
 public class UserInitalizationArgs
 {
     public bool NoPrisma;
+    public bool OnlyJs = false;
     public string OutputPath = string.Empty;
     public UserInitalizationArgs(string[] args)
     {
@@ -18,6 +19,9 @@ public class UserInitalizationArgs
             if(currentArg == "--no-prisma")
                 NoPrisma = true;
             
+            if(currentArg == "--js")
+               OnlyJs = true;
+
 
             //mais chatos
             if(currentArg == "-o")
