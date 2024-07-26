@@ -1,0 +1,15 @@
+{
+  "name": "vss",
+  "version": "1.0.0",
+  "bin": {
+    "vss": "index.js"
+  },
+  "scripts": {
+    "create": "vss"
+  },
+  "files": [
+    "MyConsoleApp.exe",
+    "vss.js"
+  ],
+  "dependencies": {}
+}
