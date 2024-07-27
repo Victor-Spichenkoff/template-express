@@ -33,6 +33,6 @@ static class CreateApp
 
         File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
 
-        Console.WriteLine($"[INFO] Create {fileOutName}");
+        Console.WriteLine($"\n[INFO] Create {fileOutName}");
     }
 }

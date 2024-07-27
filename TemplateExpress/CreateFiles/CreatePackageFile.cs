@@ -20,7 +20,7 @@ static class CreatePackageJson
         {
             if(directory.Contains("Template"))
             Console.WriteLine(directory);
-            Console.WriteLine($"[ERROR] The folder {Options.OutputName} already exists in the current directory");
+            Console.WriteLine($"[ERROR] The folder \"{Options.OutputName}\" already exists in the current directory");
             bool overwrite = Input.YesOrNo("Overwrite [y/n]: ");
             if(!overwrite) throw new Exception("[ERROR] Unable to create files");
 

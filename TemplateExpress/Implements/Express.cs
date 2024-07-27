@@ -13,7 +13,8 @@ class Express
             RunCommand.Run($"cd ../tests && npm i --save express");
             
         if(!dev)
-            RunCommand.OpenFolderAndRun("npm i --save express", Options);
+            RunCommand.OpenFolderAndRun("npm install --save express", Options);
+            RunCommand.OpenFolderAndRun("npm install -D nodemon", Options);
 
 
         Console.WriteLine("[INFO] Added express");

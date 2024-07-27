@@ -18,9 +18,9 @@ class Program
             UserInitalizationArgs Options = new(args);
             Console.Clear();
             CreatePackageJson.CreateDefault(Options);
-            // CreateApp.Create(Options);
+            CreateApp.Create(Options);
             Express.Add(Options);
-            // TypeScript.Add(true);
+            TypeScript.Add(Options);
         }
         catch (Exception e)
         {

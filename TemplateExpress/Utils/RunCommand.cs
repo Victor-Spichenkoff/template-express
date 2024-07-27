@@ -41,7 +41,6 @@ public class RunCommand
         }
         else
         {
-            Console.WriteLine("hdsf");
             Run($"cd ./{Options.OutputName} && {command}");
         }
     }
