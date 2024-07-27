@@ -212,3 +212,4 @@ C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Release\net8.0\w
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Release\net8.0\win-x64\TemplateExpress.pdb
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Release\net8.0\win-x64\TemplateExpress.genruntimeconfig.cache
 C:\Users\Pichau\Projects\all_template\final\TemplateExpress\obj\Release\net8.0\win-x64\ref\TemplateExpress.dll
+C:\Users\Pichau\Projects\all_template\final\TemplateExpress\bin\Release\net8.0\win-x64\Spectre.Console.dll
