@@ -5,11 +5,11 @@
     "vss": "index.js"
   },
   "scripts": {
-    "create": "node vss.js"
+    "create": "node index.js"
   },
   "files": [
     "app/",
-    "vss.js"
+    "index.js"
   ],
   "dependencies": {}
 }
