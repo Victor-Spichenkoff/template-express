@@ -25,7 +25,7 @@ class Program
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            System.Environment.Exit(1);
+            System.Environment.Exit(0);
         }
         // CreatePackageJson.CreateDefault(Options.OnlyJs);
         // CreateApp.Create(Options.OnlyJs);

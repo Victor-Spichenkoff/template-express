@@ -9,12 +9,7 @@ public class UserInitalizationArgs
     public bool CreateOnCurrentDir = false;
     public UserInitalizationArgs(string[] args)
     {
-        foreach (var arg in args)
-        {
-            Console.WriteLine(arg);
-        }
         SetArguments(args);
-        // Console.WriteLine("apos construtor: " + OutputName);
     }
 
     public void SetArguments(string[] args)
@@ -22,7 +17,6 @@ public class UserInitalizationArgs
         for (int i = 0; i < args.Length; i++)
         {
             var currentArg = args[i];
-            Console.WriteLine(currentArg == "-o");
             if (currentArg == "--no-prisma")
                 NoPrisma = true;
 

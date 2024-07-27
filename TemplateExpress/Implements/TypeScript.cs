@@ -6,6 +6,8 @@ class TypeScript
 {
     public static void Add(UserInitalizationArgs Options, bool dev = false)
     {
+        if(Options.OnlyJs) return;
+        
         Console.WriteLine("\n[RUNNING] Starting TypeScript...");
 
         RunCommand.OpenFolderAndRun("npm i typescript ts-node @types/node @types/express --save-dev", Options);

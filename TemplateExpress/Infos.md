@@ -21,7 +21,7 @@ Longo: --mode
 Exemplo: -m production ou --mode=production
 
 
-Meus parametros X Default
+# Meus parametros X Default
 -o --> express
 --js --> TS
 --no-prisma --> com prisma
