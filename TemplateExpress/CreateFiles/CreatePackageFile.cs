@@ -6,17 +6,32 @@ namespace TemplateExpress.CreateFiles;
 
 static class CreatePackageJson
 {
-    public static void CreateDefault(bool onlyJs = false,bool dev = false)
+    public static void CreateDefault(UserInitalizationArgs Options, bool dev = false)
     {
-        string packageContent = AllFilesText.Package(onlyJs);
+        string packageContent = AllFilesText.Package(Options.OnlyJs);
 
         string directory = Directory.GetCurrentDirectory();
         
-        if(dev)
-            directory = @"C:\Users\Pichau\Projects\all_template\final\tests";
+        //criar novo projeto
+        directory += $@"\{Options.OutputName}";
+
+        //ver se já existe
+        if (Directory.Exists(directory) && !dev && !directory.EndsWith("TemplateExpress") && !directory.EndsWith("TemplateExpress\\"))
+        {
+            if(directory.Contains("Template"))
+            Console.WriteLine(directory);
+            Console.WriteLine($"[ERROR] The folder \"{Options.OutputName}\" already exists in the current directory");
+            bool overwrite = Input.YesOrNo("Overwrite [y/n]: ");
+            if(!overwrite) throw new Exception("[ERROR] Unable to create files");
+
+            Directory.Delete(directory, true);
+        }
 
 
-        if (onlyJs) 
+        Directory.CreateDirectory(directory);
+
+
+        if (Options.OnlyJs)
         {
             File.WriteAllText(Path.Combine(directory, "package.json"), packageContent);
         }

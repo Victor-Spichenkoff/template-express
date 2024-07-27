@@ -22,13 +22,26 @@ public class RunCommand
         process.Start();
         while (!process.StandardOutput.EndOfStream)
         {
-            if(fullLogs)
+            if (fullLogs)
                 Console.WriteLine(process.StandardOutput.ReadLine());
-            
-            if(!fullLogs)
+
+            if (!fullLogs)
                 process.StandardOutput.ReadLine();
         }
         process.WaitForExit();
     }
 
+
+    public static void OpenFolderAndRun(string command, UserInitalizationArgs Options)
+    {
+        Console.WriteLine("");
+        if (Options.CreateOnCurrentDir)
+        {
+            Console.WriteLine("[WARNING] Creating on current dir");
+        }
+        else
+        {
+            Run($"cd ./{Options.OutputName} && {command}");
+        }
+    }
 }

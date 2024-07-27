@@ -5,18 +5,19 @@ namespace TemplateExpress.CreateFiles;
 
 static class CreateApp
 {
-    public static void Create(bool onlyJs = false, string outputDir = "", bool dev = false)
+    public static void Create(UserInitalizationArgs Options, bool dev=false)
     {
         string indexContent = AllFilesText.App;
 
-        string directory = string.IsNullOrEmpty(outputDir) ? Directory.GetCurrentDirectory() : outputDir;
+        string directory = Directory.GetCurrentDirectory();
         
-        string fileOutName = onlyJs ? "app.js" : "app.ts";
+        string fileOutName = Options.OnlyJs ? "app.js" : "app.ts";
 
         if(dev)
-            directory = @"C:\Users\Pichau\Projects\all_template\final\tests";
+            directory = @"C:\Users\Pichau\Projects\all_template\final\tests\express";
 
-        directory += @"\src";
+        directory += @$"\{Options.OutputName}\src";
+        
         Directory.CreateDirectory(directory);
 
         // if (onlyJs) 
@@ -32,6 +33,6 @@ static class CreateApp
 
         File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
 
-        Console.WriteLine($"[INFO] Create {fileOutName}");
+        Console.WriteLine($"\n[INFO] Create {fileOutName}");
     }
 }

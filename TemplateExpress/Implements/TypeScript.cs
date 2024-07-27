@@ -4,21 +4,12 @@ namespace TemplateExpress.Implements;
 
 class TypeScript
 {
-    public static void Add(bool dev = false)
+    public static void Add(UserInitalizationArgs Options, bool dev = false)
     {
         Console.WriteLine("\n[RUNNING] Starting TypeScript...");
-        
-        if(dev)
-        {
-            // RunCommand.Run("cd../tests && npm install typescript ts-node @types/node @types/express --save-dev");
-            RunCommand.Run("cd ../tests");
-            RunCommand.Run("cd ../tests && ls", true);
-        }
-        
-        if(!dev)
-        {
-            RunCommand.Run("cd../tests && npm install typescript ts-node @types/node @types/express --save-dev");
-        }
+
+        RunCommand.OpenFolderAndRun("npm i typescript ts-node @types/node @types/express --save-dev", Options);
+
         Console.WriteLine("[INFO] Added TypeScript");
     }
 }

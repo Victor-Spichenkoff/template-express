@@ -18,7 +18,7 @@ public static class Input
         if (res == null)
             return YesOrNo(label);
 
-        bool booleanRes = res.Trim().ToLower()[1] == 'y';
+        bool booleanRes = res.Trim().ToLower()[0] == 'y';
         
         return booleanRes;
     }
