@@ -9,10 +9,10 @@ class TypeScript
         if(Options.OnlyJs) return;
         Logs.CurrentStep("DOWNLOADING TypeScript");
         
-        Console.WriteLine("\n[RUNNING] Starting TypeScript...");
+        Console.Write("[RUNNING] Starting TypeScript...");
 
-        RunCommand.OpenFolderAndRun("npm i typescript ts-node @types/node @types/express --save-dev", Options);
+        RunCommand.OpenFolderAndRun("npm i typescript ts-node @types/node @types/express --save-dev && npx tsc --init", Options);
 
-        Console.WriteLine("[INFO] Added TypeScript");
+        Console.Write("[INFO] Added TypeScript");
     }
 }

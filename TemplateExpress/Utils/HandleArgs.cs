@@ -24,10 +24,13 @@ public class UserInitalizationArgs
                 OnlyJs = true;
 
             if(currentArg == "--current-dir")
+            {
                 CreateOnCurrentDir = true;
+                OutputName = "";
+            }
 
             //mais chatos
-            if (currentArg == "-o")
+            if (currentArg == "-o" && !args.Contains("--current-dir"))
             {
                 if (i + 1 < args.Length)
                 {

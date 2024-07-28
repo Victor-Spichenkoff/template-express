@@ -26,3 +26,5 @@ Exemplo: -m production ou --mode=production
 --js --> TS
 --no-prisma --> com prisma
 --current-dir --> cria um novo chamdo express ou -o
+--code --> não abrir
+--open --> não abrir a pasta

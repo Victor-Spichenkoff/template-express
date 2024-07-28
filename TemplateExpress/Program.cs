@@ -21,22 +21,13 @@ class Program
             CreateApp.Create(Options);
             Express.Add(Options);
             TypeScript.Add(Options);
+            Prisma.Add(Options);
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
             System.Environment.Exit(0);
         }
-        // CreatePackageJson.CreateDefault(Options.OnlyJs);
-        // CreateApp.Create(Options.OnlyJs);
-        // Express.Add();
-
-        //Para DEV
-        // Console.Clear();
-        // CreatePackageJson.CreateDefault(Options);
-        // CreateApp.Create(Options);
-        // Express.Add(true);
-        // TypeScript.Add(true);
     }
 }
 
