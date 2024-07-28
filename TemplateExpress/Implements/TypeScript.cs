@@ -7,6 +7,7 @@ class TypeScript
     public static void Add(UserInitalizationArgs Options, bool dev = false)
     {
         if(Options.OnlyJs) return;
+        Logs.CurrentStep("DOWNLOADING TypeScript");
         
         Console.WriteLine("\n[RUNNING] Starting TypeScript...");
 

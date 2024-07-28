@@ -26,7 +26,7 @@ public class RunCommand
                 Console.WriteLine(process.StandardOutput.ReadLine());
 
             if (!fullLogs)
-                process.StandardOutput.ReadLine();
+                process.StandardOutput.Read();
         }
         process.WaitForExit();
     }

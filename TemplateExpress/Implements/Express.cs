@@ -6,17 +6,18 @@ class Express
 {
     public static void Add(UserInitalizationArgs Options, bool dev = false)
     {
-        Console.WriteLine("\n[RUNNING] Installing express...");
+        Logs.CurrentStep("downloading EXPRESS");
+        Console.Write("[RUNNING] Installing express...");
         
         
         if(dev)
             RunCommand.Run($"cd ../tests && npm i --save express");
             
         if(!dev)
-            RunCommand.OpenFolderAndRun("npm install --save express", Options);
-            RunCommand.OpenFolderAndRun("npm install -D nodemon", Options);
+            RunCommand.OpenFolderAndRun("npm install --save express && npm install -D nodemon", Options);
+            // RunCommand.OpenFolderAndRun("", Options);
 
 
-        Console.WriteLine("[INFO] Added express");
+        Console.Write("[INFO] Added express");
     }
 }

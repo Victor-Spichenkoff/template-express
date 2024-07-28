@@ -19,7 +19,6 @@ static class CreatePackageJson
         if (Directory.Exists(directory) && !dev && !directory.EndsWith("TemplateExpress") && !directory.EndsWith("TemplateExpress\\"))
         {
             if(directory.Contains("Template"))
-            Console.WriteLine(directory);
             Console.WriteLine($"[ERROR] The folder \"{Options.OutputName}\" already exists in the current directory");
             bool overwrite = Input.YesOrNo("Overwrite [y/n]: ");
             if(!overwrite) throw new Exception("[ERROR] Unable to create files");
@@ -31,18 +30,16 @@ static class CreatePackageJson
         Directory.CreateDirectory(directory);
 
 
+        Logs.CurrentStep("Starting project");
+
         if (Options.OnlyJs)
         {
             File.WriteAllText(Path.Combine(directory, "package.json"), packageContent);
         }
-
-
-        // RunCommand.Run("npx tsx init");
-
         
 
         File.WriteAllText(Path.Combine(directory, "package.json"), packageContent);
 
-        Console.WriteLine("[INFO] Create package.json");
+        Console.WriteLine("[INFO] Created package.json");
     }
 }

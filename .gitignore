@@ -1,7 +1,12 @@
+#Files used in dev and tests
+express
+nhe
+zzz
 testNPX
 node_modules
 publish/app
 .fake
+
 # Ignore bin and obj folders
 bin/
 obj/
