@@ -26,5 +26,12 @@ Exemplo: -m production ou --mode=production
 --js --> TS
 --no-prisma --> com prisma
 --current-dir --> cria um novo chamdo express ou -o
+--config --> off (deixa o user confirmar tudo)
+--no-middleware --> usa middelwares
+
+# Implementar
 --code --> não abrir
 --open --> não abrir a pasta
+--stock --> não usar cors, nem router nem json
+
+usar rotamento e cors

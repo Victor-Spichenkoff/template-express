@@ -2,18 +2,41 @@ namespace TemplateExpress.Text;
 
 static class AllFilesText
 {
-    public static string App = @"import express from ""express""
+  public static string App(bool stock = false, bool noMiddleware = false)
+  {
+    if (stock || noMiddleware)
+      return @"import express from ""express""
 const app = express()
 
 const port = process.env.PORT || 2006
 
 app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
 
+// COMPLETÃO
+    return @"import express from ""express""
+import cors from ""cors""
+import mainRouter from ""./routes""
 
-    public static string Package(bool onlyJs = false)
-    {
-        if(onlyJs)
-return @"{
+const app = express()
+
+//basic middlwares
+app.use(cors())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+//router
+app.use(mainRouter)
+
+
+const port = process.env.PORT || 2006
+
+app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
+  }
+
+  public static string Package(bool onlyJs = false)
+  {
+    if (onlyJs)
+      return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
   ""type"": ""module"",
@@ -30,7 +53,7 @@ return @"{
 }
 ";
 
-return @"{
+    return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
   ""type"": ""module"",
@@ -47,13 +70,14 @@ return @"{
 }
 ";
 
-    }
+  }
 
 
-    public static string PrismaClient(bool onlyJs= false)  {
+  public static string PrismaClient(bool onlyJs = false)
+  {
 
 
-    if(onlyJs)
+    if (onlyJs)
       return @"import { PrismaClient } from '@prisma/client'
 
 export const db =  globalThis.prisma || new PrismaClient()
@@ -79,5 +103,28 @@ if(process.env.NODE_ENV != 'production') {
 }";
 
 
+  }
+
+
+  public static string Router(bool OnlyJs = false, bool NoMiddleware = false)
+  {
+    if(OnlyJs || NoMiddleware)
+      return @"import { Router } from 'express';
+const router = Router();
+
+router.get('/', (req, res) => {
+    res.send('Hello');
+})
+
+export default router";
+
+    return $@"import {{ Router, Request, Response }} from 'express';
+const router = Router();
+
+router.get('/', (req: Request, res: Response) => {{
+    res.send('Hello');
+}})
+
+export default router";
   }
 }

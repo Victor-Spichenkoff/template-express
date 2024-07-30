@@ -8,7 +8,7 @@ class Prisma
 {
     public static void Add(UserInitalizationArgs Options, bool dev = false)
     {
-        if(Options.NoPrisma) return;
+        if(Options.NoPrisma || Options.Stock) return;
         Logs.CurrentStep("IMPLEMENTING Prisma");
         
         Console.Write("[RUNNING] Downloading Prisma...");

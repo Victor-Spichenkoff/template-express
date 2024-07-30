@@ -15,8 +15,8 @@ public static class Input
     {
         Console.Write(label);
         string? res = Console.ReadLine();
-        if (res == null)
-            return YesOrNo(label);
+        if (res == null || res.Trim() == "")
+            return true;
 
         bool booleanRes = res.Trim().ToLower()[0] == 'y';
         

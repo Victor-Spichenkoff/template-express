@@ -22,6 +22,7 @@ class Program
             Express.Add(Options);
             TypeScript.Add(Options);
             Prisma.Add(Options);
+            Router.Add(Options);
         }
         catch (Exception e)
         {

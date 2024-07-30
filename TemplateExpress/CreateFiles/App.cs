@@ -7,7 +7,7 @@ static class CreateApp
 {
     public static void Create(UserInitalizationArgs Options, bool dev=false)
     {
-        string indexContent = AllFilesText.App;
+        string indexContent = AllFilesText.App(Options.Stock, Options.NoMiddlewares);
 
         string directory = Directory.GetCurrentDirectory();
         

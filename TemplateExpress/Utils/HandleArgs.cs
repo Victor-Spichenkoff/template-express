@@ -7,8 +7,21 @@ public class UserInitalizationArgs
     public bool OnlyJs = false;
     public string OutputName = "express";
     public bool CreateOnCurrentDir = false;
+    public bool Stock = false;
+
+    public bool NoMiddlewares = false;
+    
     public UserInitalizationArgs(string[] args)
     {
+        if(args.Contains("-h") || args.Contains("--help"))
+        {
+            Help.Show();
+            return;
+        }
+
+        if(args.Contains("--config"))
+            SetArgumentsFromUser();
+
         SetArguments(args);
     }
 
@@ -22,6 +35,16 @@ public class UserInitalizationArgs
 
             if (currentArg == "--js")
                 OnlyJs = true;
+
+
+            if(currentArg == "--stock")
+                Stock = true;
+
+            if(currentArg == "--no-middleware")
+                NoMiddlewares = true;   
+
+            if(currentArg == "--stock")
+                Stock = true; 
 
             if(currentArg == "--current-dir")
             {
@@ -45,5 +68,25 @@ public class UserInitalizationArgs
             }
 
         }
+    }
+
+
+    public void SetArgumentsFromUser()
+    {
+        CreateOnCurrentDir = !Input.YesOrNo("Create on same folder: (n) ");
+        if(!CreateOnCurrentDir)
+        {
+            string res = Input.String("Output folder name: (express) ");
+            OutputName = res == "" || res == "y" ? "express" : res;
+        }
+        
+        NoPrisma = !Input.YesOrNo("Use Prisma: (y) ");
+        OnlyJs = !Input.YesOrNo("Use TypeScript: (y)");
+
+        Console.WriteLine($"\n\n\n");
+        Console.WriteLine($"current {CreateOnCurrentDir}");
+        Console.WriteLine($"OutputName {OutputName}");
+        Console.WriteLine($"NoPrisma {NoPrisma}");
+        Console.WriteLine($"OnlyJs {OnlyJs}");
     }
 }
