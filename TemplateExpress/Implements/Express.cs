@@ -10,11 +10,7 @@ class Express
         Logs.CurrentStep("downloading EXPRESS");
         Console.Write("[RUNNING] Installing express...");
         
-
-            RunCommand.OpenFolderAndRun("npm install --save express && npm install -D nodemon", Options);
-            if(!Options.NoMiddlewares && !Options.Stock)
-                RunCommand.OpenFolderAndRun("npm i --save cors", Options);  
-
+        RunCommand.OpenFolderAndRun($"npm install --save express && npm install -D nodemon", Options);  
 
         Console.Write("[INFO] Added express");
     }

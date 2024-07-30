@@ -39,7 +39,6 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
       return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
-  ""type"": ""module"",
   ""main"": ""src/app.js"",
   ""scripts"": {
     ""start"": ""node src/app.js"",
