@@ -11,12 +11,12 @@ public static class Input
         return res;
     }
 
-    public static bool YesOrNo(string label)
+    public static bool YesOrNo(string label, bool enterValue = true)
     {
         Console.Write(label);
         string? res = Console.ReadLine();
         if (res == null || res.Trim() == "")
-            return true;
+            return enterValue;
 
         bool booleanRes = res.Trim().ToLower()[0] == 'y';
         

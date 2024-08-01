@@ -16,13 +16,24 @@ class Program
         try
         {
             UserInitalizationArgs Options = new(args);
-            Console.Clear();
+            bool confirmOptions = false;
+            do
+            {
+                confirmOptions = Resume.ShowAndAsk(Options);
+                if (confirmOptions == false)
+                    Options.SetArgumentsFromUser();
+                
+                Console.Clear();
+            } while (!confirmOptions);
+
+
             CreatePackageJson.CreateDefault(Options);
             CreateApp.Create(Options);
             Express.Add(Options);
             TypeScript.Add(Options);
             Prisma.Add(Options);
             Middlewares.Add(Options);
+            VSCode.Add(Options);
         }
         catch (Exception e)
         {

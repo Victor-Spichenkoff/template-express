@@ -8,9 +8,10 @@ public class UserInitalizationArgs
     public string OutputName = "express";
     public bool CreateOnCurrentDir = false;
     public bool Stock = false;
-
     public bool NoMiddlewares = false;
-    
+    public bool OpenWithCode = false;
+
+
     public UserInitalizationArgs(string[] args)
     {
         if(args.Contains("-h") || args.Contains("--help"))
@@ -43,8 +44,15 @@ public class UserInitalizationArgs
             if(currentArg == "--no-middleware")
                 NoMiddlewares = true;   
 
+            if(currentArg == "--code")
+                OpenWithCode = true;
+
             if(currentArg == "--stock")
+            {
                 Stock = true; 
+                NoPrisma = true;
+                NoMiddlewares = true;
+            }
 
             if(currentArg == "--current-dir")
             {
@@ -73,20 +81,33 @@ public class UserInitalizationArgs
 
     public void SetArgumentsFromUser()
     {
-        CreateOnCurrentDir = !Input.YesOrNo("Create on same folder: (n) ");
+        CreateOnCurrentDir = Input.YesOrNo("Create on Current Directory: (n) ", false);
+
         if(!CreateOnCurrentDir)
         {
             string res = Input.String("Output folder name: (express) ");
             OutputName = res == "" || res == "y" ? "express" : res;
         }
-        
-        NoPrisma = !Input.YesOrNo("Use Prisma: (y) ");
+        else
+        {
+            OutputName = "";
+        }
+
         OnlyJs = !Input.YesOrNo("Use TypeScript: (y)");
 
-        Console.WriteLine($"\n\n\n");
-        Console.WriteLine($"current {CreateOnCurrentDir}");
-        Console.WriteLine($"OutputName {OutputName}");
-        Console.WriteLine($"NoPrisma {NoPrisma}");
-        Console.WriteLine($"OnlyJs {OnlyJs}");
+        Stock = Input.YesOrNo("Stock Project: (n)", false);
+
+        if(Stock)
+        {
+            NoPrisma = true;
+            NoMiddlewares = true;
+            Console.WriteLine(NoPrisma);
+        }
+        else
+        {
+            NoPrisma = !Input.YesOrNo("Use Prisma: (y) ");
+            NoMiddlewares = Input.YesOrNo("Use Middlewares: (y)");
+        }
+        
     }
 }

@@ -7,13 +7,13 @@ class Help
     public static Dictionary<string, string> parameters = new Dictionary<string, string>
         {
             { "--congig", "open a menu to manually choose all options" },
-            { "--stock", "create the cleanest project (only express + basic app)" },
             { "--js", "use JavaScript" },
-            { "--no-prisma", "do not use Prisma" },
             { "--current-dir", "create the project in the current folder" },
             { "-o [output-name]", "change the output folder name (if not set to create in the current folder)" },
+            { "--stock", "create the cleanest project (only express + basic app)" },
+            { "--no-prisma", "do not use Prisma" },
+            { "--no-middleware", "do not use middlewares (cors, json and router)" },
             { "--code", "after creation, open the project in vscode" },
-            { "--no-middleware", "do not use middlewares (cors, json and router)" }
         };
 
 
@@ -43,5 +43,4 @@ class Help
             Console.WriteLine($"\n  {param.Key.PadRight(maxParamLength)}  {param.Value}");
         }
     }
-
 }

@@ -28,10 +28,19 @@ Exemplo: -m production ou --mode=production
 --current-dir --> cria um novo chamdo express ou -o
 --config --> off (deixa o user confirmar tudo)
 --no-middleware --> usa middelwares
+--stock --> não usar cors, nem router nem json
 
 # Implementar
 --code --> não abrir
 --open --> não abrir a pasta
---stock --> não usar cors, nem router nem json
 
 usar rotamento e cors
+
+- aviso finais, tipo tudo criado;
+
+# onde modificar
+- Handle User Args (2x)
+- Readme 
+- Help
+- Resume
+- Poogram.cs

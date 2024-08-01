@@ -1,10 +1,12 @@
+using TemplateExpress.Utils;
+
 namespace TemplateExpress.Text;
 
 static class AllFilesText
 {
-  public static string App(bool stock = false, bool noMiddleware = false)
+  public static string App(UserInitalizationArgs Options)
   {
-    if (stock || noMiddleware)
+    if (Options.Stock || Options.NoMiddlewares)
       return @"import express from ""express""
 const app = express()
 
@@ -12,17 +14,18 @@ const port = process.env.PORT || 2006
 
 app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
 
+
 // COMPLETÃO
-    return @"import express from ""express""
+    return $@"import express from ""express""
 import cors from ""cors""
-import mainRouter from ""./routes""
+import mainRouter from ""./routes{(Options.OnlyJs ? "/index.mjs" : "")}""
 
 const app = express()
 
 //basic middlwares
 app.use(cors())
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({{ extended: true }}));
+app.use(express.json())
 
 //router
 app.use(mainRouter)
@@ -30,7 +33,7 @@ app.use(mainRouter)
 
 const port = process.env.PORT || 2006
 
-app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
+app.listen(port, ()=> console.log(`Runnig on: http://localhost:${{port}}`))";
   }
 
   public static string Package(bool onlyJs = false)
@@ -39,10 +42,10 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
       return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
-  ""main"": ""src/app.js"",
+  ""main"": ""src/app.mjs"",
   ""scripts"": {
     ""start"": ""node src/app.js"",
-    ""dev"": ""nodemon --exec node  src/app.js"",
+    ""dev"": ""nodemon --exec node  src/app.mjs"",
     ""test"": ""echo \""Error: no test specified\"" && exit 1""
   },
   ""keywords"": [],
@@ -55,7 +58,6 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
     return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
-  ""type"": ""module"",
   ""main"": ""src/app.ts"",
   ""scripts"": {
     ""start"": ""ts-node src/app.ts"",
@@ -105,14 +107,39 @@ if(process.env.NODE_ENV != 'production') {
   }
 
 
+  public static string DotEnv = @"DATABASE_URL=""file:./dev.db""";
+
+  public static string SchemaDotPrisma = @"// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = ""prisma-client-js""
+}
+
+datasource db {
+  provider = ""sqlite""
+  url      = env(""DATABASE_URL"")
+}
+
+
+model User {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+}";
+
+
   public static string Router(bool OnlyJs = false, bool NoMiddleware = false)
   {
     if(OnlyJs || NoMiddleware)
-      return @"import { Router } from 'express';
-const router = Router();
+      return @"import { Router } from 'express'
+const router = Router()
 
 router.get('/', (req, res) => {
-    res.send('Hello');
+    res.send('Hello')
 })
 
 export default router";
@@ -121,7 +148,7 @@ export default router";
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {{
-    res.send('Hello');
+    res.send('Hello')
 }})
 
 export default router";
