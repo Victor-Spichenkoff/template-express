@@ -5,31 +5,34 @@ namespace TemplateExpress.CreateFiles;
 
 static class CreateApp
 {
-    public static void Create(UserInitalizationArgs Options, bool dev=false)
+    public static void Create(UserInitalizationArgs Options, bool dev = false)
     {
         string indexContent = AllFilesText.App(Options);
 
         string directory = Directory.GetCurrentDirectory();
-        
+
         string fileOutName = Options.OnlyJs ? "app.mjs" : "app.ts";
 
-        if(dev)
+        if (dev)
             directory = @"C:\Users\Pichau\Projects\all_template\final\tests\express";
 
-        directory += @$"\{Options.OutputName}\src";
-        
+        if (!Options.CreateOnCurrentDir)
+            directory += @$"\{Options.OutputName}\src";
+        else
+            directory += @"\src";
+
         Directory.CreateDirectory(directory);
 
         // if (onlyJs) 
         // {
 
-            // File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
+        // File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
         // }
 
 
         // RunCommand.Run("npx tsx init");
 
-        
+
 
         File.WriteAllText(Path.Combine(directory, fileOutName), indexContent);
 

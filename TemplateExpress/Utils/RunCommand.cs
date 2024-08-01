@@ -37,7 +37,7 @@ public class RunCommand
         Console.WriteLine("");
         if (Options.CreateOnCurrentDir)
         {
-            Console.WriteLine("[WARNING] Creating on current dir");
+            Run(command);
         }
         else
         {

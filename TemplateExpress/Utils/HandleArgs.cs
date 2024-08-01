@@ -93,9 +93,9 @@ public class UserInitalizationArgs
             OutputName = "";
         }
 
-        OnlyJs = !Input.YesOrNo("Use TypeScript: (y)");
+        OnlyJs = !Input.YesOrNo("Use TypeScript: (y) ");
 
-        Stock = Input.YesOrNo("Stock Project: (n)", false);
+        Stock = Input.YesOrNo("Stock Project: (n) ", false);
 
         if(Stock)
         {
@@ -106,8 +106,8 @@ public class UserInitalizationArgs
         else
         {
             NoPrisma = !Input.YesOrNo("Use Prisma: (y) ");
-            NoMiddlewares = Input.YesOrNo("Use Middlewares: (y)");
+            NoMiddlewares = !Input.YesOrNo("Use Middlewares: (y) ");
         }
-        
+        OpenWithCode = Input.YesOrNo("Open on VSCode: (n) ", false);
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "vss-express",
-  "version": "1.0.0-dev.3",
+  "version": "1.0.4",
   "bin": {
     "vss": "index.js"
   },

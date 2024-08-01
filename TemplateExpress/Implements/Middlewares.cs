@@ -11,7 +11,8 @@ static class Middlewares
         if (Options.Stock || Options.NoMiddlewares)
             return;
 
-        Logs.CurrentStep("[RUNNING] Adding Middlewares");
+        Logs.CurrentStep("Middlewares");
+        Console.WriteLine("[RUNNING] Adding Middlewares");
 
         string routerContent = AllFilesText.Router(Options.OnlyJs);
 
@@ -19,7 +20,10 @@ static class Middlewares
 
         string fileOutName = Options.OnlyJs ? "index.mjs" : "index.ts";
 
-        directory += @$"\{Options.OutputName}\src\routes";
+        if (!Options.CreateOnCurrentDir)
+            directory += @$"\{Options.OutputName}\src\routes";
+        else
+            directory += @$"\src\routes";
 
         Directory.CreateDirectory(directory);
 
