@@ -35,7 +35,7 @@ class Program
             Middlewares.Add(Options);
             VSCode.Add(Options);
 
-            Logs.CurrentStep("❤️ THANKS ❤️ ");
+            Logs.CurrentStep("THANKS ");
         }
         catch (Exception e)
         {

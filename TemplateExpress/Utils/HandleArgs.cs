@@ -59,7 +59,10 @@ public class UserInitalizationArgs
             }
 
             if(currentArg == "--pituca")
+            {
+                Logs.CurrentStep("THANKS ");
                 throw new Exception("FIM");
+            }
 
             if(currentArg == "--current-dir")
             {
