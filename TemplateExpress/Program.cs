@@ -34,6 +34,8 @@ class Program
             Prisma.Add(Options);
             Middlewares.Add(Options);
             VSCode.Add(Options);
+
+            Logs.CurrentStep("❤️ THANKS ❤️ ");
         }
         catch (Exception e)
         {
