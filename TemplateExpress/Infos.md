@@ -42,3 +42,6 @@ Exemplo: -m production ou --mode=production
 - Help
 - Resume
 - Poogram.cs
+
+
+# Só rodar == --pituca

@@ -10,6 +10,7 @@ public class UserInitalizationArgs
     public bool Stock = false;
     public bool NoMiddlewares = false;
     public bool OpenWithCode = false;
+    public bool JustRun = false;
 
 
     public UserInitalizationArgs(string[] args)
@@ -56,6 +57,9 @@ public class UserInitalizationArgs
                 NoPrisma = true;
                 NoMiddlewares = true;
             }
+
+            if(currentArg == "--pituca")
+                throw new Exception("FIM");
 
             if(currentArg == "--current-dir")
             {
