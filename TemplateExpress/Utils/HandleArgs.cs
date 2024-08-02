@@ -21,7 +21,10 @@ public class UserInitalizationArgs
         }
 
         if(args.Contains("--config"))
+        {
             SetArgumentsFromUser();
+            return;
+        }
 
         SetArguments(args);
     }

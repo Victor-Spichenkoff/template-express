@@ -34,8 +34,6 @@ Exemplo: -m production ou --mode=production
 --code --> não abrir
 --open --> não abrir a pasta
 
-usar rotamento e cors
-
 - aviso finais, tipo tudo criado;
 
 # onde modificar
