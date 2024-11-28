@@ -176,7 +176,7 @@ MyProject/
 │
 ├── src/
 │   │
-│   └── app.ts
+│   └── app.js
 │
 ├── package.json
 

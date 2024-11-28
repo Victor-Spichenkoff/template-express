@@ -11,13 +11,16 @@ public class UserInitalizationArgs
     public bool NoMiddlewares = false;
     public bool OpenWithCode = false;
     public bool JustRun = false;
+    public bool HelpThisTime = false;
 
 
     public UserInitalizationArgs(string[] args)
     {
+        HelpThisTime = false;
         if(args.Contains("-h") || args.Contains("--help"))
         {
             Help.Show();
+            HelpThisTime = true;
             return;
         }
 

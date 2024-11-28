@@ -8,7 +8,10 @@ static class AllFilesText
   {
     if (Options.Stock || Options.NoMiddlewares)
       return @"import express from ""express""
+import { configDotenv } from ""dotenv""
+
 const app = express()
+configDotenv()
 
 const port = process.env.PORT || 2006
 
@@ -18,9 +21,11 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
 // COMPLETÃO
     return $@"import express from ""express""
 import cors from ""cors""
+import {{ configDotenv }} from ""dotenv""
 import mainRouter from ""./routes{(Options.OnlyJs ? "/index.mjs" : "")}""
 
 const app = express()
+configDotenv()
 
 //basic middlwares
 app.use(cors())
@@ -44,7 +49,7 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${{port}}`))";
   ""version"": ""1.0.0"",
   ""main"": ""src/app.mjs"",
   ""scripts"": {
-    ""start"": ""node src/app.js"",
+    ""start"": ""node src/app.mjs"",
     ""dev"": ""nodemon --exec node  src/app.mjs"",
     ""test"": ""echo \""Error: no test specified\"" && exit 1""
   },

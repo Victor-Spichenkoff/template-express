@@ -10,7 +10,7 @@ class Express
         Logs.CurrentStep("downloading EXPRESS");
         Console.Write("[RUNNING] Installing express...");
         
-        RunCommand.OpenFolderAndRun($"npm install --save express && npm install -D nodemon", Options);  
+        RunCommand.OpenFolderAndRun($"npm install --save express dotenv && npm install -D nodemon", Options);  
 
         Console.Write("[INFO] Added express");
     }

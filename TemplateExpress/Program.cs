@@ -17,6 +17,9 @@ class Program
         {
             UserInitalizationArgs Options = new(args);
             bool confirmOptions = false;
+            if(Options.HelpThisTime)//sair, só quer ajuda
+                return;
+
             do
             {
                 confirmOptions = Resume.ShowAndAsk(Options);

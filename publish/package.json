@@ -1,6 +1,6 @@
 {
   "name": "vss-express",
-  "version": "1.0.5",
+  "version": "1.2.1c",
   "author": "Victor Spichenkoff Santana victor.ss.estudos@gmail.com",
   "bin": {
     "vss": "index.js"
