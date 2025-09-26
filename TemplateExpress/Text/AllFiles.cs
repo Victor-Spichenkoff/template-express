@@ -68,7 +68,7 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${{port}}`))";
   ""type"": ""module"",
   ""main"": ""src/app.ts"",
   ""scripts"": {
-    ""start"": ""ts-node src/app.ts"",
+    ""start"": ""node --loader ts-node/esm src/app.ts"",
     ""dev"": ""nodemon --watch src --ext ts,json --exec \""node --loader ts-node/esm src/app.ts\"""",
     ""test"": ""echo \""Error: no test specified\"" && exit 1""
   },
