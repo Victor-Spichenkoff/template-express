@@ -6,7 +6,7 @@ class Help
 {
     public static Dictionary<string, string> parameters = new Dictionary<string, string>
         {
-            { "--congig", "open a menu to manually choose all options" },
+            { "--config", "open a menu to manually choose all options" },
             { "--js", "use JavaScript" },
             { "--current-dir", "create the project in the current folder" },
             { "-o [output-name]", "change the output folder name (if not set to create in the current folder)" },
