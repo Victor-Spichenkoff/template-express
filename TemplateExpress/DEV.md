@@ -1,4 +1,6 @@
 # Todo
+- line 155 AllFile > import type { Request, Response } from 'express'; opcional no noJS
+- need fix on js (falta module, novo dev <- ambos package; app.mjs?)
 Changes to fix
 
 - package: "type": "commonjs"
@@ -15,9 +17,19 @@ Changes to fix
 
 ### changing files:
 - packege:  "type": "module",
-- app.ts
+- and: dev: nodemon --watch src --ext ts,json --exec \"node --loader ts-node/esm src/app.ts\"
+- app.ts:
+    - import mainRouter from "./routes/index.js"
+    - Removi isso do completão:
+    import mainRouter from ""./routes{(Options.OnlyJs ? "/index.mjs" : "")}""
+- route:
+    import { Router } from 'express';
+    import type { Request, Response } from 'express';- 
 
-
+### Change on JS:
+- package:   "type": "module",
+    - and: 
+- não usa mais .mjs, só js
 
 # Mandar para o npm:
 - dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true

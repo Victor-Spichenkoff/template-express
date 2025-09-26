@@ -11,7 +11,7 @@ static class CreateApp
 
         string directory = Directory.GetCurrentDirectory();
 
-        string fileOutName = Options.OnlyJs ? "app.mjs" : "app.ts";
+        string fileOutName = Options.OnlyJs ? "app.js" : "app.ts";
 
         if (dev)
             directory = @"C:\Users\Pichau\Projects\all_template\final\tests\express";

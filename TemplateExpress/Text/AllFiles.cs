@@ -22,7 +22,8 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${port}`))";
     return $@"import express from ""express""
 import cors from ""cors""
 import {{ configDotenv }} from ""dotenv""
-import mainRouter from ""./routes{(Options.OnlyJs ? "/index.mjs" : "")}""
+
+import mainRouter from ""./routes/index.js""
 
 const app = express()
 configDotenv()
@@ -47,10 +48,11 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${{port}}`))";
       return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
-  ""main"": ""src/app.mjs"",
+  ""main"": ""src/app.js"",
+  ""type"": ""module"",
   ""scripts"": {
-    ""start"": ""node src/app.mjs"",
-    ""dev"": ""nodemon --exec node  src/app.mjs"",
+    ""start"": ""node src/app.js"",
+    ""dev"": ""nodemon --experimental-modules src/app.js"",
     ""test"": ""echo \""Error: no test specified\"" && exit 1""
   },
   ""keywords"": [],
@@ -63,10 +65,11 @@ app.listen(port, ()=> console.log(`Runnig on: http://localhost:${{port}}`))";
     return @"{
   ""name"": ""app"",
   ""version"": ""1.0.0"",
+  ""type"": ""module"",
   ""main"": ""src/app.ts"",
   ""scripts"": {
     ""start"": ""ts-node src/app.ts"",
-    ""dev"": ""nodemon --exec ts-node src/app.ts"",
+    ""dev"": ""nodemon --watch src --ext ts,json --exec \""node --loader ts-node/esm src/app.ts\"""",
     ""test"": ""echo \""Error: no test specified\"" && exit 1""
   },
   ""keywords"": [],
@@ -140,7 +143,7 @@ model User {
   public static string Router(bool OnlyJs = false, bool NoMiddleware = false)
   {
     if(OnlyJs || NoMiddleware)
-      return @"import { Router } from 'express'
+      return @"import { Router } from 'express';
 const router = Router()
 
 router.get('/', (req, res) => {
@@ -149,7 +152,8 @@ router.get('/', (req, res) => {
 
 export default router";
 
-    return $@"import {{ Router, Request, Response }} from 'express';
+    return @"import { Router } from 'express';
+import type { Request, Response } from 'express';
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {{

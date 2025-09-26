@@ -18,7 +18,7 @@ static class Middlewares
 
         string directory = Directory.GetCurrentDirectory();
 
-        string fileOutName = Options.OnlyJs ? "index.mjs" : "index.ts";
+        string fileOutName = Options.OnlyJs ? "index.js" : "index.ts";
 
         if (!Options.CreateOnCurrentDir)
             directory += @$"\{Options.OutputName}\src\routes";
